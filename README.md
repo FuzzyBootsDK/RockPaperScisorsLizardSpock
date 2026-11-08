@@ -3,6 +3,13 @@
 The five-way version of the playground game, as a single page with no dependencies and no build
 step. Open `index.html` in a browser and play.
 
+| Before the first round | Mid-game |
+| --- | --- |
+| ![An empty board: both sides showing a question mark, all scores at zero](screenshots/1-start.png) | ![A draw on Paper, with the score at 5–4–4 and both circles outlined in yellow](screenshots/2-in-play.png) |
+
+The circles take the colour of the outcome — green for a win, red for a loss, yellow for a draw —
+and the line under them says which rule decided it.
+
 ```
 index.html   markup, and the two references below it
 styles.css   all styling
