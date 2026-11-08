@@ -1,0 +1,258 @@
+@charset "UTF-8";
+
+/* Must be the first thing in the file. Inline in a <style> block these rules inherited the
+   document's encoding; as a separate file served without a charset header they would not, and the
+   ▾ / ▴ markers below would arrive as mojibake. */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background-color: #0B0F2B;
+  color: #FFFFFF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-bottom: 0.3rem;
+  color: #FFFFFF;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: #6078A4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* Score board */
+.scoreboard {
+  display: flex;
+  gap: 2rem;
+  background: #2F4B80;
+  border-radius: 12px;
+  padding: 1rem 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+}
+
+.score-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.score-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #6078A4;
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.score-divider {
+  width: 1px;
+  background: #6078A4;
+  opacity: 0.4;
+  align-self: stretch;
+}
+
+/* Battle area */
+.battle {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  min-height: 130px;
+}
+
+.combatant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 110px;
+}
+
+.combatant-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6078A4;
+}
+
+.choice-display {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: #2F4B80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  border: 3px solid #6078A4;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.choice-display.win {
+  border-color: #4ade80;
+  box-shadow: 0 0 18px rgba(74, 222, 128, 0.5);
+}
+
+.choice-display.lose {
+  border-color: #f87171;
+  box-shadow: 0 0 18px rgba(248, 113, 113, 0.4);
+}
+
+.choice-display.draw {
+  border-color: #facc15;
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.4);
+}
+
+.vs {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6078A4;
+}
+
+/* Result message */
+.result-msg {
+  font-size: 1.1rem;
+  font-weight: 600;
+  min-height: 1.6rem;
+  margin-bottom: 0.4rem;
+  text-align: center;
+  letter-spacing: 0.05em;
+}
+
+.result-msg.win  { color: #4ade80; }
+.result-msg.lose { color: #f87171; }
+.result-msg.draw { color: #facc15; }
+
+.result-detail {
+  font-size: 0.82rem;
+  color: #6078A4;
+  min-height: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Choices grid */
+.choices {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.choice-btn {
+  background: #2F4B80;
+  border: 2px solid #6078A4;
+  border-radius: 14px;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  transition: background 0.18s, border-color 0.18s, transform 0.12s, box-shadow 0.18s;
+  min-width: 75px;
+}
+
+.choice-btn:hover {
+  background: #3a5a96;
+  border-color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(96, 120, 164, 0.4);
+}
+
+.choice-btn:active {
+  transform: translateY(0);
+}
+
+.choice-btn .emoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.choice-btn .name {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a8bcd8;
+}
+
+/* Reset button */
+.reset-btn {
+  background: transparent;
+  border: 2px solid #6078A4;
+  border-radius: 8px;
+  color: #6078A4;
+  cursor: pointer;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.5rem 1.5rem;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+}
+
+.reset-btn:hover {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  background: rgba(96,120,164,0.15);
+}
+
+/* Rules */
+details {
+  margin-top: 2.5rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+summary {
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6078A4;
+  list-style: none;
+  text-align: center;
+  user-select: none;
+  padding: 0.4rem;
+}
+
+summary:hover { color: #a8bcd8; }
+summary::after { content: ' ▾'; }
+details[open] summary::after { content: ' ▴'; }
+
+.rules-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3rem 1rem;
+}
+
+.rule {
+  font-size: 0.74rem;
+  color: #a8bcd8;
+  padding: 0.15rem 0;
+  border-bottom: 1px solid rgba(96,120,164,0.2);
+}
+
+.rule span { color: #6078A4; margin: 0 0.25rem; }
